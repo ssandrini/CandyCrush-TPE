@@ -54,6 +54,26 @@ public class Level2 extends Grid {
         }
     }
 
+    @Override
+    public boolean tryMove(int i1, int j1, int i2, int j2) {
+        boolean ret;
+        if (ret = super.tryMove(i1, j1, i2, j2)) {
+            state().addMove();
+            //chequeamos si es un movimiento horizontal
+            if(i1 == i2){
+                for(Cell cell : g()[i1]){
+                    cell.setGolden();
+                }
+            }
+            else{
+                for(int i = 0; i < SIZE; i++){
+                    g()[i][j1].setGolden();
+                }
+            }
+        }
+        return ret;
+    }
+
     public int countNotGolden() {
         int count = 0;
         for(Cell[] cells : g()) {

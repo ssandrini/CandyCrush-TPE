@@ -13,7 +13,6 @@ public class TwoBombMove extends Move {
 		for(int i = 0; i < Grid.SIZE; i++) {
 			for(int j = 0; j < Grid.SIZE; j++) {
 				clearContent(i,j);
-				grid.getCell(i,j).setGolden();
 			}
 		}
 	}
