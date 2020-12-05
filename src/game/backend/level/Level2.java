@@ -59,35 +59,32 @@ public class Level2 extends Grid {
         boolean ret;
         if (ret = super.tryMove(i1, j1, i2, j2)) {
             state().addMove();
+            Level2State state = (Level2State) state();
             //chequeamos si es un movimiento horizontal
-            if(i1 == i2){
-                for(Cell cell : g()[i1]){
-                    cell.setGolden();
+            if(i1 == i2) {
+                for(int i = 0; i < SIZE; i++){
+                    if(! g()[i1][i].isGolden()) {
+                        super.g()[i1][i].setGolden();
+                        state.decreaseNotGolden();
+                    }
                 }
             }
-            else{
+            else {
                 for(int i = 0; i < SIZE; i++){
-                    g()[i][j1].setGolden();
+                    if(! g()[i][j1].isGolden()) {
+                        super.g()[i][j1].setGolden();
+                        state.decreaseNotGolden();
+                    }
                 }
             }
         }
         return ret;
     }
 
-    public int countNotGolden() {
-        int count = 0;
-        for(Cell[] cells : g()) {
-            for(Cell c : cells) {
-                if(c.isGolden())
-                    count++;
-            }
-        }
-        return count;
-    }
-
     private class Level2State extends GameState {
 
         private long maxMoves;
+        private int notGolden = SIZE*SIZE;
 
         public Level2State( int maxMoves) {
             this.maxMoves = maxMoves;
@@ -98,7 +95,9 @@ public class Level2 extends Grid {
         }
 
         public boolean playerWon() {
-            return countNotGolden() == 0;
+            return notGolden == 0;
         }
+
+        public void decreaseNotGolden() { notGolden--; }
     }
 }
