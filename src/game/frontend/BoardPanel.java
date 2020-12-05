@@ -22,8 +22,6 @@ public class BoardPanel extends TilePane {
 		}
 	}
 	
-	public void setImage(int row, int column, Image image) {
-		cells[row][column].setImage(image);
-	}
+	public void setImage(int row, int column, Image image) { cells[row][column].setImage(image); }
 
 }
