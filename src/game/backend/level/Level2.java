@@ -57,9 +57,9 @@ public class Level2 extends Grid {
     @Override
     public boolean tryMove(int i1, int j1, int i2, int j2) {
         boolean ret;
+        Level2State state = (Level2State) state();
         if (ret = super.tryMove(i1, j1, i2, j2)) {
-            state().addMove();
-            Level2State state = (Level2State) state();
+            state.addMove();
             //chequeamos si es un movimiento horizontal
             if(i1 == i2) {
                 for(int i = 0; i < SIZE; i++){
