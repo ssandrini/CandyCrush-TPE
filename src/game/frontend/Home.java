@@ -3,18 +3,20 @@ package game.frontend;
 import game.backend.CandyGame;
 import game.backend.level.Level1;
 import game.backend.level.Level2;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
 
 public class Home {
 
     private Stage stage;
 
-    public Home(Stage stage) {
+    public Home setPrimaryStage(Stage stage) {
         this.stage = stage;
+        return this;
     }
+
     public void level1(ActionEvent event) {
         choose(Level1.class);
     }
@@ -32,4 +34,5 @@ public class Home {
         stage.setScene(scene);
         stage.setResizable(false);
     }
+
 }
