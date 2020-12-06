@@ -94,6 +94,12 @@ public class Cell {
 		return backgroundColor != null;
 	}
 
+	public Color getColor(){
+		if(hasColor())
+			return backgroundColor;
+		return null;
+	}
+
 	public void setColor(Color backgroundColor) {
 		this.backgroundColor = backgroundColor ;
 	}
