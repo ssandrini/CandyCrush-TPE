@@ -5,6 +5,7 @@ import game.backend.Grid;
 import game.backend.cell.CandyGeneratorCell;
 import game.backend.cell.Cell;
 import game.backend.element.Wall;
+import javafx.scene.paint.Color;
 
 public class Level2 extends Grid {
 
@@ -63,16 +64,16 @@ public class Level2 extends Grid {
             //chequeamos si es un movimiento horizontal
             if(i1 == i2) {
                 for(int i = 0; i < SIZE; i++){
-                    if(! g()[i1][i].isGolden()) {
-                        super.g()[i1][i].setGolden();
+                    if(! g()[i1][i].hasColor()) {
+                        super.g()[i1][i].setColor(Color.YELLOW);
                         state.decreaseNotGolden();
                     }
                 }
             }
             else {
                 for(int i = 0; i < SIZE; i++){
-                    if(! g()[i][j1].isGolden()) {
-                        super.g()[i][j1].setGolden();
+                    if(! g()[i][j1].hasColor()) {
+                        super.g()[i][j1].setColor(Color.YELLOW);
                         state.decreaseNotGolden();
                     }
                 }

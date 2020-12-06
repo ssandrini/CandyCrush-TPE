@@ -27,8 +27,8 @@ public class Home {
         //choose(Level3.class);
     }
 
-    public void choose(Class<?> clazz) {
-        CandyGame game = new CandyGame(clazz);
+    public void choose(Class<?> level) {
+        CandyGame game = new CandyGame(level);
         CandyFrame frame = new CandyFrame(game);
         Scene scene = new Scene(frame);
         stage.setScene(scene);

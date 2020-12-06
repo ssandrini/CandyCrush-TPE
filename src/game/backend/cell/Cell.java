@@ -11,7 +11,7 @@ public class Cell {
 	private Grid grid;
 	private Cell[] around = new Cell[Direction.values().length];
 	private Element content;
-	private boolean isGolden = false;
+	private Color backgroundColor;
 
 	public Cell(Grid grid) {
 		this.grid = grid;
@@ -90,12 +90,12 @@ public class Cell {
 		return false;
 	}
 
-	public boolean isGolden() {
-		return isGolden;
+	public boolean hasColor() {
+		return backgroundColor != null;
 	}
 
-	public void setGolden() {
-		this.isGolden = true;
+	public void setColor(Color backgroundColor) {
+		this.backgroundColor = backgroundColor ;
 	}
 
 	public void setContent(Element content) {
