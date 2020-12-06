@@ -4,6 +4,7 @@ import game.backend.Grid;
 import game.backend.element.Element;
 import game.backend.element.Nothing;
 import game.backend.move.Direction;
+import javafx.scene.paint.Color;
 
 public class Cell {
 	
@@ -89,12 +90,12 @@ public class Cell {
 		return false;
 	}
 
-	public boolean isGolden() { //FUNCION PARA EL LVL 2
+	public boolean isGolden() {
 		return isGolden;
 	}
 
 	public void setGolden() {
-		isGolden = true;
+		this.isGolden = true;
 	}
 
 	public void setContent(Element content) {
