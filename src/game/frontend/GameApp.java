@@ -20,16 +20,17 @@ public class GameApp extends Application {
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 
+		// cargamos el archivo FXML y lo guardamos en root
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("PrimerHome.fxml"));
 		Parent root = loader.load();
 
-		CandyGame game = new CandyGame(Level2.class);
-		CandyFrame frame = new CandyFrame(game);
-		Scene scene = new Scene(frame);
+		// seteamos la escena de Home
+		Scene homeScene = new Scene(root, 600, 400);
 		primaryStage.setResizable(false);
-		primaryStage.setScene(scene);
+		primaryStage.setScene(homeScene);
 		primaryStage.show();
+
 	}
 
 }
