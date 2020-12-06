@@ -24,7 +24,7 @@ public class GameApp extends Application {
 
 		// cargamos el archivo FXML y lo guardamos en root
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("PrimerHome.fxml"));
+		loader.setLocation(getClass().getResource("SegundoHome.fxml"));
 		Parent root = loader.load();
 		((Home) loader.getController()).setPrimaryStage(primaryStage);
 		// seteamos la escena de Home
