@@ -1,8 +1,9 @@
 package game.backend.level;
 
 import game.backend.GameState;
+import javafx.scene.paint.Color;
 
-public class Level3 extends Level2 {
+public class Level3 extends AbstractLevel {
 
     private static int WALL_SIZE = 3;
     private static int MAX_MOVES = 30;
@@ -10,7 +11,7 @@ public class Level3 extends Level2 {
 
     @Override
     protected GameState newState() {
-        return new Level2.Level2State(MAX_MOVES, INITIAL_REMAINING);
+        return new Level3.Level3State(MAX_MOVES, INITIAL_REMAINING);
     }
 
     @Override
@@ -20,19 +21,46 @@ public class Level3 extends Level2 {
     }
 
     private void paintWalls() {
-        //FALTA TERMINAR
-        int initialI = SIZE/2;
-        int initialJ = SIZE/2;
-        int diff = WALL_SIZE/2;
-        for(int i = initialI; i < initialI + diff; i++ ) {
-
+        for(int i = 3; i < SIZE - 3; i++ ) {
+            for(int j = 3; j < SIZE - 3; j++ ){
+                g()[i][j].setColor(Color.SANDYBROWN);
+            }
         }
     }
 
     @Override
     public boolean tryMove(int i1, int j1, int i2, int j2) {
-        return true;
-        // aca hay que poner si un special move cae en el wall y que lo destruya
+        return super.tryMove(i1, j1, i2, j2);
+    }
+
+    private class Level3State extends GameState {
+
+        private int maxMoves;
+        private int remaining;
+
+        public Level3State(int maxMoves, int remaining) {
+
+            this.maxMoves = maxMoves;
+            this.remaining = remaining;
+        }
+
+        public String[] getScores() {
+            String[] ans = { String.format("%d", getScore()), String.format("REMAINING CELLS: %d", getRemaining())};
+            return ans;
+        }
+
+        public boolean gameOver() {
+            return playerWon() || getMoves() >= maxMoves;
+        }
+
+        public boolean playerWon() {
+            return remaining == 0;
+        }
+
+        public void decreaseRemaining() { remaining--; }
+
+        public int getRemaining() { return remaining; }
+
     }
     
 }

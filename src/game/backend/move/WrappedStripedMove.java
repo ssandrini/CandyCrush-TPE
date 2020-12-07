@@ -2,7 +2,7 @@ package game.backend.move;
 
 import game.backend.Grid;
 
-public class WrappedStripedMove extends Move {
+public class WrappedStripedMove extends SpecialMove {
 
 	public WrappedStripedMove(Grid grid) {
 		super(grid);

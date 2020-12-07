@@ -2,7 +2,7 @@ package game.backend.move;
 
 import game.backend.Grid;
 
-public class TwoStripedMove extends Move {
+public class TwoStripedMove extends SpecialMove {
 
 	public TwoStripedMove(Grid grid) {
 		super(grid);

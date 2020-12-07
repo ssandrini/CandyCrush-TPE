@@ -41,7 +41,7 @@ public class Level2 extends AbstractLevel {
         return ret;
     }
 
-    protected class Level2State extends GameState {
+    private class Level2State extends GameState {
 
         private int maxMoves;
         private int remaining;

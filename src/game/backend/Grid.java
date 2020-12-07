@@ -31,7 +31,7 @@ public abstract class Grid {
 		return g;
 	}
 	
-	protected GameState state(){
+	public GameState state(){
 		return state;
 	}
 	
@@ -108,7 +108,6 @@ public abstract class Grid {
 	}
 	
 	private void removeFigure(int i, int j, Figure f) {
-		//Aca se deberian los flags isGolden en las celdas
 		CandyColor color = ((Candy)get(i, j)).getColor();
 		if (f.hasReplacement()) {
 			setContent(i, j, f.generateReplacement(color));

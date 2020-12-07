@@ -47,7 +47,8 @@ public class Cell {
 			grid.cellExplosion(content);
 			this.content = new Nothing();
 			if (explosionCascade != null) {
-				expandExplosion(explosionCascade); 
+				expandExplosion(explosionCascade);
+				//probar aca el if de sandy brown//
 			}
 			this.content = new Nothing();
 		}

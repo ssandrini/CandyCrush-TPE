@@ -27,4 +27,5 @@ public abstract class GameState {
 	
 	public abstract boolean playerWon();
 
+	public abstract void decreaseRemaining();
 }

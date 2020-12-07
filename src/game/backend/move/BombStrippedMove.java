@@ -7,7 +7,7 @@ import game.backend.element.CandyColor;
 import game.backend.element.HorizontalStripedCandy;
 import game.backend.element.VerticalStripedCandy;
 
-public class BombStrippedMove extends Move {
+public class BombStrippedMove extends SpecialMove {
 
 	public BombStrippedMove(Grid grid) {
 		super(grid);

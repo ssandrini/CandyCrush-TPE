@@ -33,6 +33,10 @@ public class Level1 extends AbstractLevel {
 		public boolean playerWon() {
 			return getScore() > requiredScore;
 		}
+
+		public void decreaseRemaining() {
+			//no hace nada por ahora//
+		}
 	}
 
 }

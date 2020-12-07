@@ -34,6 +34,9 @@ public class BoardPanel extends TilePane {
 			Lighting lighting = new Lighting(spotLight);
 			cells[row][column].setEffect(lighting);
 		}
+		else{
+			cells[row][column].setEffect(null);
+		}
 	}
 
 }
