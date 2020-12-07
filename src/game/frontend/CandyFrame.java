@@ -5,6 +5,7 @@ import game.backend.GameListener;
 import game.backend.cell.Cell;
 import game.backend.element.Element;
 
+import game.frontend.ScorePanels.ScorePanel;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.geometry.Point2D;
@@ -23,7 +24,7 @@ public class CandyFrame extends VBox {
 	private Point2D lastPoint;
 	private CandyGame game;
 
-	public CandyFrame(CandyGame game) {
+	public CandyFrame(CandyGame game) { // aca quizas recibimos el scorepanel
 		this.game = game;
 		getChildren().add(new AppMenu());
 		images = new ImageManager();

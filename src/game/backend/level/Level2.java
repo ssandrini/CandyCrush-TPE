@@ -7,10 +7,11 @@ import javafx.scene.paint.Color;
 public class Level2 extends AbstractLevel {
 
     private static int MAX_MOVES = 30;
+    private static int INITIAL_REMAINING = SIZE*SIZE;
 
     @Override
     protected GameState newState() {
-        return new Level2.Level2State(MAX_MOVES);
+        return new Level2.Level2State(MAX_MOVES, INITIAL_REMAINING);
     }
 
 
@@ -43,11 +44,13 @@ public class Level2 extends AbstractLevel {
 
     private class Level2State extends GameState {
 
-        private long maxMoves;
-        private int notGolden = SIZE*SIZE;
+        private int maxMoves;
+        private int remaining;
 
-        public Level2State( int maxMoves) {
+        public Level2State(int maxMoves, int remaining) {
+
             this.maxMoves = maxMoves;
+            this.remaining = remaining;
         }
 
         public boolean gameOver() {
@@ -55,9 +58,10 @@ public class Level2 extends AbstractLevel {
         }
 
         public boolean playerWon() {
-            return notGolden == 0;
+            return remaining == 0;
         }
 
-        public void decreaseNotGolden() { notGolden--; }
+        public void decreaseNotGolden() { remaining--; }
+
     }
 }

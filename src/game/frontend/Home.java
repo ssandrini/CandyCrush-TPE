@@ -18,9 +18,8 @@ public class Home {
         return this;
     }
 
-    public void level1(ActionEvent event) {
-        choose(Level1.class);
-    }
+    // aca quizas mandamos el scorepanel que corresponda
+    public void level1(ActionEvent event) { choose(Level1.class); }
     public void level2(ActionEvent event) {
         choose(Level2.class);
     }

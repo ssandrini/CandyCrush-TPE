@@ -1,21 +1,25 @@
 package game.backend.level;
 
-import game.backend.GameState;
+public class Level3 extends Level2 {
 
-public class Level3 extends AbstractLevel {
-    //cambiarlo y poner las condiciones del nivel3(estan con la del 1)
-    private static int REQUIRED_SCORE = 5000;
-    private static int MAX_MOVES = 20;
-
-    @Override
-    protected GameState newState() {
-        return new Level3.Level3State(REQUIRED_SCORE, MAX_MOVES);
-    }
+    private static int WALL_SIZE = 3;
+    private static int MAX_MOVES = 30;
+    private static int INITIAL_REMAINING = WALL_SIZE * WALL_SIZE;
 
     @Override
     protected void fillCells() {
         super.fillCells();
-        // falta rellenar el centro con sandybrown
+        paintWalls();
+    }
+
+    private void paintWalls() {
+        //FALTA TERMINAR
+        int initialI = SIZE/2;
+        int initialJ = SIZE/2;
+        int diff = WALL_SIZE/2;
+        for(int i = initialI; i < initialI + diff; i++ ) {
+
+        }
     }
 
     @Override
@@ -23,22 +27,5 @@ public class Level3 extends AbstractLevel {
         return true;
         // aca hay que poner si un special move cae en el wall y que lo destruya
     }
-
-    private class Level3State extends GameState {
-        private long requiredScore;
-        private long maxMoves;
-
-        public Level3State(long requiredScore, int maxMoves) {
-            this.requiredScore = requiredScore;
-            this.maxMoves = maxMoves;
-        }
-
-        public boolean gameOver() {
-            return playerWon() || getMoves() >= maxMoves;
-        }
-
-        public boolean playerWon() {
-            return getScore() > requiredScore;
-        }
-    }
+    
 }
