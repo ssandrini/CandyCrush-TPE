@@ -48,12 +48,21 @@ public class Cell {
 			this.content = new Nothing();
 			if (explosionCascade != null) {
 				expandExplosion(explosionCascade);
-				//probar aca el if de sandy brown//
+				wallBlast();
 			}
 			this.content = new Nothing();
 		}
 	}
-	
+
+	private void wallBlast() {
+		if(hasColor()) {
+			if (getColor().equals(Color.SANDYBROWN)) {
+				setColor(null);
+				grid.state().decreaseRemaining();
+			}
+		}
+	}
+
 	private void expandExplosion(Direction[] explosion) {
 		for(Direction d: explosion) {
 			this.around[d.ordinal()].explode(d);
@@ -61,9 +70,10 @@ public class Cell {
 	}
 	
 	private void explode(Direction d) {
-		clearContent();
+		wallBlast();
 		if (this.around[d.ordinal()] != null)
 			this.around[d.ordinal()].explode(d);
+		clearContent();
 	}
 	
 	public Element getAndClearContent() {
