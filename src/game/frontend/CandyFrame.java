@@ -5,7 +5,6 @@ import game.backend.GameListener;
 import game.backend.cell.Cell;
 import game.backend.element.Element;
 
-import game.frontend.ScorePanels.ScorePanel;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.geometry.Point2D;
@@ -34,6 +33,7 @@ public class CandyFrame extends VBox {
 		getChildren().add(scorePanel);
 		game.initGame();
 		GameListener listener;
+		scorePanel.updateScore(game().getScores());
 		game.addGameListener(listener = new GameListener() {
 			@Override
 			public void gridUpdated() {
@@ -71,15 +71,15 @@ public class CandyFrame extends VBox {
 				if (newPoint != null) {
 					System.out.println("Get second = " +  newPoint);
 					game().tryMove((int)lastPoint.getX(), (int)lastPoint.getY(), (int)newPoint.getX(), (int)newPoint.getY());
-					String message = ((Long)game().getScore()).toString();
+					String[] messages = game().getScores();
 					if (game().isFinished()) {
 						if (game().playerWon()) {
-							message = message + " Finished - Player Won!";
+							messages[0] = messages[0] + " Finished - Player Won!";
 						} else {
-							message = message + " Finished - Loser !";
+							messages[0] = messages[0] + " Finished - Loser !";
 						}
 					}
-					scorePanel.updateScore(message);
+					scorePanel.updateScore(messages);
 					lastPoint = null;
 				}
 			}

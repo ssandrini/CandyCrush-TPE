@@ -14,7 +14,6 @@ public class Level2 extends AbstractLevel {
         return new Level2.Level2State(MAX_MOVES, INITIAL_REMAINING);
     }
 
-
     @Override
     public boolean tryMove(int i1, int j1, int i2, int j2) {
         boolean ret;
@@ -26,7 +25,7 @@ public class Level2 extends AbstractLevel {
                 for(int i = 0; i < SIZE; i++){
                     if(! g()[i1][i].hasColor()) {
                         super.g()[i1][i].setColor(Color.YELLOW);
-                        state.decreaseNotGolden();
+                        state.decreaseRemaining();
                     }
                 }
             }
@@ -34,7 +33,7 @@ public class Level2 extends AbstractLevel {
                 for(int i = 0; i < SIZE; i++){
                     if(! g()[i][j1].hasColor()) {
                         super.g()[i][j1].setColor(Color.YELLOW);
-                        state.decreaseNotGolden();
+                        state.decreaseRemaining();
                     }
                 }
             }
@@ -42,7 +41,7 @@ public class Level2 extends AbstractLevel {
         return ret;
     }
 
-    private class Level2State extends GameState {
+    protected class Level2State extends GameState {
 
         private int maxMoves;
         private int remaining;
@@ -53,6 +52,11 @@ public class Level2 extends AbstractLevel {
             this.remaining = remaining;
         }
 
+        public String[] getScores() {
+            String[] ans = { String.format("%d", getScore()), String.format("REMAINING CELLS: %d", getRemaining())};
+            return ans;
+        }
+
         public boolean gameOver() {
             return playerWon() || getMoves() >= maxMoves;
         }
@@ -61,7 +65,9 @@ public class Level2 extends AbstractLevel {
             return remaining == 0;
         }
 
-        public void decreaseNotGolden() { remaining--; }
+        public void decreaseRemaining() { remaining--; }
+
+        public int getRemaining() { return remaining; }
 
     }
 }

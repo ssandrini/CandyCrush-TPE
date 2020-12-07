@@ -20,6 +20,11 @@ public class Level1 extends AbstractLevel {
 			this.requiredScore = requiredScore;
 			this.maxMoves = maxMoves;
 		}
+
+		public String[] getScores() {
+			String[] ans = {String.format("%d", getScore())};
+			return ans;
+		}
 		
 		public boolean gameOver() {
 			return playerWon() || getMoves() >= maxMoves;

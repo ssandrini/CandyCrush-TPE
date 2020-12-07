@@ -1,10 +1,17 @@
 package game.backend.level;
 
+import game.backend.GameState;
+
 public class Level3 extends Level2 {
 
     private static int WALL_SIZE = 3;
     private static int MAX_MOVES = 30;
     private static int INITIAL_REMAINING = WALL_SIZE * WALL_SIZE;
+
+    @Override
+    protected GameState newState() {
+        return new Level2.Level2State(MAX_MOVES, INITIAL_REMAINING);
+    }
 
     @Override
     protected void fillCells() {
