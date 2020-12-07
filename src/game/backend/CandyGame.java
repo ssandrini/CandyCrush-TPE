@@ -5,7 +5,7 @@ import game.backend.element.Element;
 
 public class CandyGame implements GameListener {
 	
-	private Class<?> levelClass;
+	private final Class<?> levelClass; //////
 	private Grid grid;
 	private GameState state;
 	
@@ -28,7 +28,7 @@ public class CandyGame implements GameListener {
 		return Grid.SIZE;
 	}
 	
-	public boolean tryMove(int i1, int j1, int i2, int j2){
+	public boolean tryMove(int i1, int j1, int i2, int j2) {
 		return grid.tryMove(i1, j1, i2, j2);
 	}
 	

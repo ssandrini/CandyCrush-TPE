@@ -6,18 +6,18 @@ import javafx.scene.paint.Color;
 
 public class Level2 extends AbstractLevel {
 
-    private static int MAX_MOVES = 30;
-    private static int INITIAL_REMAINING = SIZE*SIZE;
+    private static final int MAX_MOVES = 30;
+    private static final int INITIAL_REMAINING = SIZE*SIZE;
 
     @Override
     protected GameState newState() {
-        return new Level2.Level2State(MAX_MOVES, INITIAL_REMAINING);
+        return new RemainingLevelState(MAX_MOVES, INITIAL_REMAINING);
     }
 
     @Override
     public boolean tryMove(int i1, int j1, int i2, int j2) {
         boolean ret;
-        Level2State state = (Level2State) state();
+        RemainingLevelState state = (RemainingLevelState) state();
         if (ret = super.tryMove(i1, j1, i2, j2)) {
             state.addMove();
             //chequeamos si es un movimiento horizontal
@@ -39,35 +39,5 @@ public class Level2 extends AbstractLevel {
             }
         }
         return ret;
-    }
-
-    private class Level2State extends GameState {
-
-        private int maxMoves;
-        private int remaining;
-
-        public Level2State(int maxMoves, int remaining) {
-
-            this.maxMoves = maxMoves;
-            this.remaining = remaining;
-        }
-
-        public String[] getScores() {
-            String[] ans = { String.format("%d", getScore()), String.format("REMAINING CELLS: %d", getRemaining())};
-            return ans;
-        }
-
-        public boolean gameOver() {
-            return playerWon() || getMoves() >= maxMoves;
-        }
-
-        public boolean playerWon() {
-            return remaining == 0;
-        }
-
-        public void decreaseRemaining() { remaining--; }
-
-        public int getRemaining() { return remaining; }
-
     }
 }

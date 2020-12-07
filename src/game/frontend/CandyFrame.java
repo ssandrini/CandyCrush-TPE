@@ -17,13 +17,13 @@ public class CandyFrame extends VBox {
 
 	private static final int CELL_SIZE = 65;
 
-	private BoardPanel boardPanel;
-	private ScorePanel scorePanel;
-	private ImageManager images;
+	private final BoardPanel boardPanel;
+	private final ScorePanel scorePanel;
+	private final ImageManager images;
 	private Point2D lastPoint;
-	private CandyGame game;
+	private final CandyGame game;
 
-	public CandyFrame(CandyGame game) { // aca quizas recibimos el scorepanel
+	public CandyFrame(CandyGame game) {
 		this.game = game;
 		getChildren().add(new AppMenu());
 		images = new ImageManager();
@@ -74,9 +74,9 @@ public class CandyFrame extends VBox {
 					String[] messages = game().getScores();
 					if (game().isFinished()) {
 						if (game().playerWon()) {
-							messages[0] = messages[0] + " Finished - Player Won!";
+							messages[ScorePanel.SCORE_INDEX] = messages[ScorePanel.SCORE_INDEX] + " Finished - Player Won!";
 						} else {
-							messages[0] = messages[0] + " Finished - Loser !";
+							messages[ScorePanel.SCORE_INDEX] = messages[ScorePanel.SCORE_INDEX] + " Finished - Loser !";
 						}
 					}
 					scorePanel.updateScore(messages);

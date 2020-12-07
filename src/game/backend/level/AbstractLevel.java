@@ -7,15 +7,12 @@ import game.backend.element.Wall;
 
 abstract public class AbstractLevel extends Grid {
 
-    private Cell wallCell;
-    private Cell candyGenCell;
-
     @Override
     protected void fillCells() {
 
-        wallCell = new Cell(this);
+        Cell wallCell = new Cell(this);
         wallCell.setContent(new Wall());
-        candyGenCell = new CandyGeneratorCell(this);
+        Cell candyGenCell = new CandyGeneratorCell(this);
 
         //corners
         g()[0][0].setAround(candyGenCell, g()[1][0], wallCell, g()[0][1]);
@@ -33,7 +30,7 @@ abstract public class AbstractLevel extends Grid {
         }
         //left line cells
         for (int i = 1; i < SIZE-1; i++) {
-            g()[i][0].setAround(g()[i-1][0],g()[i+1][0], wallCell ,g()[i][1]);
+            g()[i][0].setAround(g()[i-1][0],g()[i+1][0], wallCell,g()[i][1]);
         }
         //right line cells
         for (int i = 1; i < SIZE-1; i++) {
@@ -49,6 +46,8 @@ abstract public class AbstractLevel extends Grid {
 
     @Override
     public boolean tryMove(int i1, int j1, int i2, int j2) {
+        if(state().gameOver())
+            return false;
         boolean ret;
         if (ret = super.tryMove(i1, j1, i2, j2)) {
             state().addMove();
