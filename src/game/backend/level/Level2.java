@@ -19,7 +19,6 @@ public class Level2 extends AbstractLevel {
         boolean ret;
         RemainingLevelState state = (RemainingLevelState) state();
         if (ret = super.tryMove(i1, j1, i2, j2)) {
-            state.addMove();
             //chequeamos si es un movimiento horizontal
             if(i1 == i2) {
                 for(int i = 0; i < SIZE; i++){
