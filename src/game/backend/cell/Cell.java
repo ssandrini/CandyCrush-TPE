@@ -8,8 +8,8 @@ import javafx.scene.paint.Color;
 
 public class Cell {
 	
-	private final Grid grid; ///////////
-	private final Cell[] around = new Cell[Direction.values().length]; ////////////
+	private final Grid grid;
+	private final Cell[] around = new Cell[Direction.values().length];
 	private Element content;
 	private Color backgroundColor;
 
@@ -48,6 +48,7 @@ public class Cell {
 			this.content = new Nothing();
 			if (explosionCascade != null) {
 				expandExplosion(explosionCascade);
+				// se agrega la función wall blast
 				wallBlast();
 			}
 			this.content = new Nothing();
@@ -70,6 +71,7 @@ public class Cell {
 	}
 	
 	private void explode(Direction d) {
+		// agregamos funcion wall blast
 		wallBlast();
 		if (this.around[d.ordinal()] != null)
 			this.around[d.ordinal()].explode(d);

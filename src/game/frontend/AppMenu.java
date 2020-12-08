@@ -36,14 +36,12 @@ public class AppMenu extends MenuBar {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("About");
             alert.setHeaderText("Candy TPE");
-            alert.setContentText("""
-                    OOP course 2020.
+            alert.setContentText("OOP course 2020.\n" +
+                    "Version History:\n" +
+                    "Original Implementation: Laura Zabaleta (OOP 2013) \n " +
+                    "Further Updates: Santiago Sandrini and Sol Konfederak (OOP 2020). \n" +
 
-                    Version History:
-                    Original Implementation: Laura Zabaleta (OOP 2013)
-                    Further Updates: Santiago Sandrini and Sol Konfederak (OOP 2020).
-
-                    for more information contact us on itba.edu.ar""");
+                    "\nfor more information contact us on itba.edu.ar");
             alert.showAndWait();
         });
         help.getItems().add(aboutMenuItem);

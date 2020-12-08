@@ -29,13 +29,9 @@ public class CandyFrame extends VBox {
 	private final ImageManager images;
 	private Point2D lastPoint;
 	private final CandyGame game;
-	private final Stage primaryStage;
-	private final Scene home;
 
 	public CandyFrame(CandyGame game, Stage primaryStage, Scene home) {
 		this.game = game;
-		this.primaryStage = primaryStage;
-		this.home = home;
 		getChildren().add(new AppMenu(primaryStage, home));
 		images = new ImageManager();
 		boardPanel = new BoardPanel(game.getSize(), game.getSize(), CELL_SIZE);
@@ -89,7 +85,7 @@ public class CandyFrame extends VBox {
 						} else {
 							messages[ScorePanel.SCORE_INDEX] = messages[ScorePanel.SCORE_INDEX] + " Loser !";
 						}
-						scorePanel.updateScore(messages); // para que aparezca si gano o no
+						scorePanel.updateScore(messages);
 						Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 						alert.setTitle("Candy Crush");
 						alert.setHeaderText("The game has finished");

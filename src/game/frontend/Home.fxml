@@ -11,7 +11,7 @@
    <children>
       <Label alignment="CENTER" layoutX="175.0" layoutY="32.0" prefHeight="77.0" prefWidth="251.0" text="Candy Crush" textFill="#9f35a4">
          <font>
-            <Font name="American Typewriter Condensed Bold" size="41.0" />
+            <Font name="American Typewriter Condensed Bold" size="35.0" />
          </font>
       </Label>
       <Button layoutX="225.0" layoutY="136.0" mnemonicParsing="false" onAction="#level1" prefHeight="45.0" prefWidth="150.0" style="-fx-background-color: #E5449E;" text="Level 1" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="225.0">
@@ -22,7 +22,7 @@
             <Font name="Comic Sans MS" size="22.0" />
          </font>
          <tooltip>
-            <Tooltip text="El nivel consiste en juntar 5000 puntos antes de los 20 movimientos para ganar.">
+            <Tooltip text="You need to get 5000 points in 20 movements or less">
                <font>
                   <Font name="Monospaced Regular" size="20.0" />
                </font>
@@ -37,7 +37,7 @@
             <Font name="Comic Sans MS" size="22.0" />
          </font>
          <tooltip>
-            <Tooltip text="Para ganar este nivel deberás convertir todo el tablero en oro! Tienes 30 movimientos.">
+            <Tooltip text="You have up to 30 movements to turn the board golden">
                <font>
                   <Font name="Monospaced Regular" size="20.0" />
                </font></Tooltip>
@@ -51,7 +51,7 @@
             <Font name="Comic Sans MS" size="22.0" />
          </font>
          <tooltip>
-            <Tooltip text="Las celdas oscuras solo se romperan con movimientos de candies especiales y solo tendras 30 movimientos para eliminarlas y ganar!">
+            <Tooltip text="Only the special candies can destroy the dark walls. Try to get rid of them in 30 movements">
                <font>
                   <Font name="Monospaced Regular" size="20.0" />
                </font></Tooltip>

@@ -22,7 +22,6 @@ public class Home {
         this.homeScene = scene;
     }
 
-    // aca quizas mandamos el scorepanel que corresponda
     public void level1(ActionEvent event) { choose(Level1.class); }
     public void level2(ActionEvent event) { choose(Level2.class); }
     public void level3(ActionEvent event) {
