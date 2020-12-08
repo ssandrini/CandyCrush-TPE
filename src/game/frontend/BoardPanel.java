@@ -9,7 +9,7 @@ import javafx.scene.paint.Color;
 
 public class BoardPanel extends TilePane {
 
-	private ImageView[][] cells;
+	private final ImageView[][] cells;
 
 	public BoardPanel(final int rows, final int columns, final int cellSize) {
 		setPrefRows(rows);

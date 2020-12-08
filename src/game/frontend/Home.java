@@ -12,10 +12,14 @@ import javafx.stage.Stage;
 public class Home {
 
     private Stage stage;
+    private Scene homeScene;
 
-    public Home setPrimaryStage(Stage stage) {
+    public void setPrimaryStage(Stage stage) {
         this.stage = stage;
-        return this;
+    }
+
+    public void setHomeScene(Scene scene){
+        this.homeScene = scene;
     }
 
     // aca quizas mandamos el scorepanel que corresponda
@@ -27,7 +31,7 @@ public class Home {
 
     public void choose(Class<?> level) {
         CandyGame game = new CandyGame(level);
-        CandyFrame frame = new CandyFrame(game);
+        CandyFrame frame = new CandyFrame(game, stage, homeScene);
         Scene scene = new Scene(frame);
         stage.setScene(scene);
         stage.setResizable(false);

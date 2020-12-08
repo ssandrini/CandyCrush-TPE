@@ -7,11 +7,18 @@ import game.backend.element.Element;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.geometry.Point2D;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import java.util.Optional;
 
 public class CandyFrame extends VBox {
 
@@ -22,10 +29,14 @@ public class CandyFrame extends VBox {
 	private final ImageManager images;
 	private Point2D lastPoint;
 	private final CandyGame game;
+	private final Stage primaryStage;
+	private final Scene home;
 
-	public CandyFrame(CandyGame game) {
+	public CandyFrame(CandyGame game, Stage primaryStage, Scene home) {
 		this.game = game;
-		getChildren().add(new AppMenu());
+		this.primaryStage = primaryStage;
+		this.home = home;
+		getChildren().add(new AppMenu(primaryStage, home));
 		images = new ImageManager();
 		boardPanel = new BoardPanel(game.getSize(), game.getSize(), CELL_SIZE);
 		getChildren().add(boardPanel);
@@ -74,9 +85,24 @@ public class CandyFrame extends VBox {
 					String[] messages = game().getScores();
 					if (game().isFinished()) {
 						if (game().playerWon()) {
-							messages[ScorePanel.SCORE_INDEX] = messages[ScorePanel.SCORE_INDEX] + " Finished - Player Won!";
+							messages[ScorePanel.SCORE_INDEX] = messages[ScorePanel.SCORE_INDEX] + "Player Won!";
 						} else {
-							messages[ScorePanel.SCORE_INDEX] = messages[ScorePanel.SCORE_INDEX] + " Finished - Loser !";
+							messages[ScorePanel.SCORE_INDEX] = messages[ScorePanel.SCORE_INDEX] + " Loser !";
+						}
+						scorePanel.updateScore(messages); // para que aparezca si gano o no
+						Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+						alert.setTitle("Candy Crush");
+						alert.setHeaderText("The game has finished");
+						alert.setContentText("Would you like to go back to Home Screen?");
+						Optional<ButtonType> result = alert.showAndWait();
+						if(result.isPresent()) {
+							if (result.get() == ButtonType.OK) {
+								primaryStage.setScene(home);
+								primaryStage.setTitle("Candy Crush");
+							}
+							else{
+								Platform.exit();
+							}
 						}
 					}
 					scorePanel.updateScore(messages);
