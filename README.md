@@ -1,6 +1,6 @@
 <h1>Candy Crush Académico</h1>
 <h2> Introducción </h2>
-<p>La aplicación es una versión académica y muy reducida del juego "Candy Crush" realizado para la materia <b>Programación Orientada a Objetos</b>. El juego
+<p>La aplicación es una versión académica y muy reducida del juego "Candy Crush" realizado para la materia <b>Programación Orientada a Objetos</b> en el lenguaje <b>JAVA</b>. El juego
 consiste en una grilla orientada verticalmente, donde caen y se apilan caramelos de diferentes
 colores. La mecánica del juego consiste en elegir un par de caramelos adyacentes para intercambiar
 sus posiciones. Este intercambio es válido solo si al realizarlo se forma alguna figura válida con
