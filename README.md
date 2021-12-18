@@ -1,5 +1,5 @@
 # candyTpe
-<h1>Candy Crush Académico<h1>
+<h1>Candy Crush Académico</h1>
 
 <p>La aplicación es una versión académica y muy reducida del juego "Candy Crush". El juego
 consiste en una grilla orientada verticalmente, donde caen y se apilan caramelos de diferentes
